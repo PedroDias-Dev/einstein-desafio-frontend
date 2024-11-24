@@ -21,29 +21,40 @@ export const Image = styled.div`
   max-width: 300px;
   height: 200px;
 
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    z-index: 1;
   }
+`;
 
-  cursor: pointer;
+export const AddToCart = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
 
-  :hover {
-    opacity: 0.3;
-  }
+  transition: 0.3s;
+  opacity: 0;
 
-  position: relative;
+  padding: 5px 0px;
+  width: 100%;
+  height: 40px;
 
-  :hover:after {
-    content: "Adicionar ao carrinho";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    font-size: 20px;
-  }
+  background-color: #000;
+  color: #fff;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 `;
 
 export const Infos = styled.div`
