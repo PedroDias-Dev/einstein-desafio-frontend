@@ -6,12 +6,12 @@ export const Wrapper = styled.div`
   flex-direction: column;
   gap: 40px;
 
-  width: 100%;
-
   border: 1px solid #ededed;
   border-radius: 10px;
 
   height: fit-content;
+
+  min-width: 300px;
 `;
 
 export const SummaryTitle = styled.h3`

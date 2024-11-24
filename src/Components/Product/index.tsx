@@ -2,12 +2,15 @@ import { Product as ProductInterface } from "Interfaces/Product";
 import * as S from "./styles";
 import { ShoppingCart } from "lucide-react";
 import { useEffect } from "react";
+import useCart from "Hooks/useCart";
 
 interface ProductProps {
   product: ProductInterface;
 }
 
 const Product = ({ product }: ProductProps) => {
+  const { addProductToCart } = useCart();
+
   useEffect(() => {
     const image = document.getElementById(`image-${product.id}`);
     const addToCart = document.getElementById(`add-to-cart-${product.id}`);
@@ -30,7 +33,10 @@ const Product = ({ product }: ProductProps) => {
       <S.Image id={`image-${product.id}`}>
         <img src={product.image} alt={product.title} />
 
-        <S.AddToCart id={`add-to-cart-${product.id}`}>
+        <S.AddToCart
+          id={`add-to-cart-${product.id}`}
+          onClick={() => addProductToCart(product)}
+        >
           Add to Cart
           <ShoppingCart size="20px" />
         </S.AddToCart>

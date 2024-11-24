@@ -1,9 +1,9 @@
-import useProducts from "Hooks/useProducts";
 import * as S from "./styles";
 import { Minus, Plus, X } from "lucide-react";
+import useCart from "Hooks/useCart";
 
 const CartItems = () => {
-  const { products } = useProducts();
+  const { cart, removeProductFromCart, changeProductQuantity } = useCart();
 
   return (
     <S.Wrapper>
@@ -11,9 +11,9 @@ const CartItems = () => {
       <hr />
 
       <S.CartItems>
-        {!products.length && <p>Nenhum item no carrinho</p>}
+        {!cart.length && <p>Nenhum item no carrinho</p>}
 
-        {products.map((product) => (
+        {cart.map((product) => (
           <S.CartProduct key={product.id}>
             <S.Main>
               <img src={product.image} alt={product.title} />
@@ -22,16 +22,28 @@ const CartItems = () => {
             </S.Main>
 
             <S.Controls>
-              <S.Price>R$ {product.price}</S.Price>
+              <S.Price>
+                R$ {(product.price * product.quantity!).toFixed(2)}
+              </S.Price>
 
               <S.Quantity>
-                <Minus size="15px" />
-                <span>1</span>
-                <Plus size="15px" />
+                <Minus
+                  size="15px"
+                  onClick={() =>
+                    changeProductQuantity(product, product.quantity! - 1)
+                  }
+                />
+                <span>{product.quantity}</span>
+                <Plus
+                  size="15px"
+                  onClick={() =>
+                    changeProductQuantity(product, product.quantity! + 1)
+                  }
+                />
               </S.Quantity>
 
               <S.Remove>
-                <X size="20px" />
+                <X size="20px" onClick={() => removeProductFromCart(product)} />
               </S.Remove>
             </S.Controls>
           </S.CartProduct>

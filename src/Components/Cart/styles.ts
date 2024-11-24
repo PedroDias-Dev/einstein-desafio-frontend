@@ -5,6 +5,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
   gap: 10px;
 
+  width: 100%;
+
   hr {
     border: 1px solid #e5e5e5;
     width: 100%;
@@ -69,6 +71,9 @@ export const Quantity = styled.div`
   svg {
     cursor: pointer;
   }
+
+  -webkit-user-select: none;
+  user-select: none;
 `;
 
 export const Remove = styled.div`
