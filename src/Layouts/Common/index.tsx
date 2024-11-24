@@ -1,5 +1,7 @@
 import Header from "Components/Header";
 import * as S from "./styles";
+import ServicesProvider from "Contexts/Services";
+import ProductsProvider from "Contexts/Products";
 
 const CommonLayout = ({
   displayName,
@@ -9,13 +11,17 @@ const CommonLayout = ({
   children: React.ReactNode;
 }) => {
   return (
-    <S.Wrapper>
-      <Header />
+    <ServicesProvider>
+      <ProductsProvider>
+        <S.Wrapper>
+          <Header />
 
-      <S.Breadcrumb>Ecommerce | {displayName}</S.Breadcrumb>
+          <S.Breadcrumb>Ecommerce | {displayName}</S.Breadcrumb>
 
-      <S.MainContent>{children}</S.MainContent>
-    </S.Wrapper>
+          <S.MainContent>{children}</S.MainContent>
+        </S.Wrapper>
+      </ProductsProvider>
+    </ServicesProvider>
   );
 };
 

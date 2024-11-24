@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 import React from "react";
 
 export const ServicesContext = React.createContext({
-  api: {},
+  api: {} as AxiosInstance,
 });
 
 const ServicesProvider = ({ children }: React.PropsWithChildren) => {

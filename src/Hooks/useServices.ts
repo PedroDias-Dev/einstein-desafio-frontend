@@ -1,7 +1,7 @@
 import { ServicesContext } from "Contexts/Services";
 import { useContext } from "react";
 
-const UseServices = () => {
+const useServices = () => {
   const { api } = useContext(ServicesContext);
 
   return {
@@ -9,4 +9,4 @@ const UseServices = () => {
   };
 };
 
-export default UseServices;
+export default useServices;
