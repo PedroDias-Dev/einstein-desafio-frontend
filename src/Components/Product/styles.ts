@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   gap: 25px;
 `;
 
-export const Image = styled.div`
+export const ImageWrapper = styled.div`
   padding: 20px;
   background-color: #f5f5f5;
   border-radius: 10px;
@@ -28,16 +28,19 @@ export const Image = styled.div`
 
   transition: 0.3s;
 
-  :hover {
-    opacity: 0.3;
+  &:hover {
+    background-color: #fafafa;
+    img {
+      opacity: 0.3;
+    }
   }
+`;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    z-index: 1;
-  }
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
 `;
 
 export const AddToCart = styled.div`

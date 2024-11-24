@@ -30,8 +30,8 @@ const Product = ({ product }: ProductProps) => {
 
   return (
     <S.Wrapper>
-      <S.Image id={`image-${product.id}`}>
-        <img src={product.image} alt={product.title} />
+      <S.ImageWrapper id={`image-${product.id}`}>
+        <S.Image src={product.image} alt={product.title} />
 
         <S.AddToCart
           id={`add-to-cart-${product.id}`}
@@ -40,7 +40,7 @@ const Product = ({ product }: ProductProps) => {
           Add to Cart
           <ShoppingCart size="20px" />
         </S.AddToCart>
-      </S.Image>
+      </S.ImageWrapper>
 
       <S.Infos>
         <S.Name>{product.title}</S.Name>
