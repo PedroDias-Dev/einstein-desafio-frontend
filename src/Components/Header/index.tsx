@@ -2,8 +2,12 @@ import { CircleUserRound, ShoppingCart } from "lucide-react";
 import * as S from "./styles";
 
 import Logo from "Assets/einstein-logo.jpg";
+import { useNavigate } from "react-router-dom";
+import CommonRoutes from "Routes/Common/Common";
 
 const Header = () => {
+  const navigate = useNavigate();
+
   const links = [
     { label: "Home", href: "/marketplace" },
     { label: "Categorias", href: "/categories" },
@@ -36,7 +40,7 @@ const Header = () => {
 
       <S.Container>
         {/* // input */}
-        <ShoppingCart />
+        <ShoppingCart onClick={() => navigate(CommonRoutes.Cart.path)} />
         <CircleUserRound />
       </S.Container>
     </S.Wrapper>

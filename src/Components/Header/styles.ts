@@ -34,6 +34,10 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+
+  svg {
+    cursor: pointer;
+  }
 `;
 
 export const Link = styled.a<LinkProps>`
