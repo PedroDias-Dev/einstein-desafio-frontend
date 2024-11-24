@@ -47,7 +47,7 @@ const Product = ({ product }: ProductProps) => {
         <S.Bottom>
           <S.StockBadge>IN STOCK</S.StockBadge>
 
-          <S.Price>R$ {product.price}</S.Price>
+          <S.Price>R$ {product.price.toFixed(2)}</S.Price>
         </S.Bottom>
       </S.Infos>
     </S.Wrapper>

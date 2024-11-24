@@ -21,7 +21,7 @@ const CartSummary = () => {
 
         <S.Info>
           <span>Frete</span>
-          <h3>Gratis</h3>
+          <h3>Grátis</h3>
         </S.Info>
 
         <S.Info>

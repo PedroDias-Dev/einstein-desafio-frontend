@@ -1,4 +1,9 @@
-import { BrowserRouter, Routes as DOMRoutes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes as DOMRoutes,
+  Navigate,
+  Route,
+} from "react-router-dom";
 import React from "react";
 import CommonRoutes from "./Common/Common";
 import CommonLayout from "Layouts/Common";
@@ -22,6 +27,8 @@ const Routes = () => {
             }
           />
         ))}
+
+        <Route path="/" element={<Navigate to="/marketplace" />} />
 
         <Route path="*" element={<NotFound />} />
       </DOMRoutes>

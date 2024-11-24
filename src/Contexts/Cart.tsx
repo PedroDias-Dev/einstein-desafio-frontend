@@ -1,5 +1,6 @@
 import { Product } from "Interfaces/Product";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export const CartContext = React.createContext({
   cart: [] as Product[],
@@ -44,6 +45,8 @@ const CartProvider = ({ children }: React.PropsWithChildren) => {
         return item;
       });
 
+      toast.success("Quantidade atualizada!");
+
       setCart(newCart);
       return;
     }
@@ -55,6 +58,8 @@ const CartProvider = ({ children }: React.PropsWithChildren) => {
         quantity: 1,
       },
     ]);
+
+    toast.success("Produto adicionado ao carrinho!");
   };
 
   const removeProductFromCart = (product: Product) => {
@@ -64,7 +69,8 @@ const CartProvider = ({ children }: React.PropsWithChildren) => {
 
     const newCart = cart.filter((item) => item.id !== product.id);
     setCart(newCart);
-    return;
+
+    toast.success("Produto removido do carrinho!");
   };
 
   const changeProductQuantity = (product: Product, quantity: number) => {
