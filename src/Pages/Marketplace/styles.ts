@@ -13,11 +13,12 @@ export const Wrapper = styled.div`
 
 export const Products = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   justify-items: center;
   gap: 20px;
 
   ${media.lessThan("medium")`
+    grid-template-columns: 1fr;
     gap: 40px;
   `}
 `;

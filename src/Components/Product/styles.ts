@@ -2,7 +2,7 @@ import styled from "styled-components";
 import media from "styled-media-query";
 
 export const Wrapper = styled.div`
-  max-width: 200px;
+  max-width: 300px;
 
   display: flex;
   flex-direction: column;
@@ -33,7 +33,7 @@ export const ImageWrapper = styled.div`
 
   width: 100%;
   max-width: 300px;
-  height: 200px;
+  height: 250px;
 
   cursor: pointer;
 
@@ -52,6 +52,8 @@ export const ImageWrapper = styled.div`
   ${media.lessThan("medium")`
     width: auto;
     max-width: 100%;
+
+    height: 200px;
   `}
 `;
 
