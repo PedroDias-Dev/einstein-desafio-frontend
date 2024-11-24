@@ -46,6 +46,8 @@ const ProductsProvider = ({ children }: React.PropsWithChildren) => {
     Promise.all([searchProducts({}), getCategories()]).then(() => {
       setLoading(false);
     });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -60,6 +62,8 @@ const ProductsProvider = ({ children }: React.PropsWithChildren) => {
     searchProducts({
       category: selectedCategory,
     });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearch]);
 
   const searchProducts = async ({ category }: { category?: string }) => {
