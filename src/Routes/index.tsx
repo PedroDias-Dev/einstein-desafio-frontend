@@ -13,7 +13,10 @@ const Routes = () => {
             key={key}
             path={value.path}
             element={
-              <CommonLayout displayName={value.displayName}>
+              <CommonLayout
+                displayName={value.displayName}
+                showBreadcrumbTitle={value.showBreadcrumbTitle || false}
+              >
                 {React.createElement(value.element, value)}
               </CommonLayout>
             }

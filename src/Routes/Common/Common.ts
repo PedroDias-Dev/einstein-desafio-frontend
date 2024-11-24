@@ -6,11 +6,13 @@ const CommonRoutes = {
     displayName: "Marketplace",
     path: "/marketplace",
     element: Marketplace,
+    showBreadcrumbTitle: false,
   },
   Cart: {
     displayName: "Carrinho",
     path: "/cart",
     element: Cart,
+    showBreadcrumbTitle: true,
   },
 };
 

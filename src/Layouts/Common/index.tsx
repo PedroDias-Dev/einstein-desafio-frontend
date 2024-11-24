@@ -2,32 +2,27 @@ import Header from "Components/Header";
 import * as S from "./styles";
 import ServicesProvider from "Contexts/Services";
 import ProductsProvider from "Contexts/Products";
-import { ChevronRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import CommonRoutes from "Routes/Common/Common";
+import Breadcrumb from "Components/Breadcrumb";
 
 const CommonLayout = ({
   displayName,
+  showBreadcrumbTitle,
   children,
 }: {
   displayName?: string;
+  showBreadcrumbTitle?: boolean;
   children: React.ReactNode;
 }) => {
-  const navigate = useNavigate();
-
   return (
     <ServicesProvider>
       <ProductsProvider>
         <S.Wrapper>
           <Header />
 
-          <S.Breadcrumb>
-            <span onClick={() => navigate(CommonRoutes.Marketplace.path)}>
-              Ecommerce
-            </span>
-            <ChevronRight />
-            <h3>{displayName}</h3>
-          </S.Breadcrumb>
+          <Breadcrumb
+            displayName={displayName || ""}
+            showBreadcrumbTitle={showBreadcrumbTitle}
+          />
 
           <S.MainContent>{children}</S.MainContent>
         </S.Wrapper>
