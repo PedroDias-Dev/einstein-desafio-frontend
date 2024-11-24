@@ -2,6 +2,7 @@ import { BrowserRouter, Routes as DOMRoutes, Route } from "react-router-dom";
 import React from "react";
 import CommonRoutes from "./Common/Common";
 import CommonLayout from "Layouts/Common";
+import NotFound from "Pages/NotFound";
 
 const Routes = () => {
   return (
@@ -12,14 +13,14 @@ const Routes = () => {
             key={key}
             path={value.path}
             element={
-              <CommonLayout>
+              <CommonLayout displayName={value.displayName}>
                 {React.createElement(value.element, value)}
               </CommonLayout>
             }
           />
         ))}
 
-        {/* <Route path="*" element={<PageNotFound />} /> */}
+        <Route path="*" element={<NotFound />} />
       </DOMRoutes>
     </BrowserRouter>
   );
