@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
 
@@ -9,11 +10,21 @@ export const Wrapper = styled.div`
 `;
 
 export const Breadcrumb = styled.div`
-  padding: 20px;
+  padding: 20px 50px;
 
   display: flex;
   align-items: center;
   gap: 10px;
+
+  span {
+    color: #424242;
+    font-size: 16px;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: normal;
+  }
 `;
 
 export const MainContent = styled.div`
@@ -22,4 +33,8 @@ export const MainContent = styled.div`
   flex-direction: column;
 
   background-color: #fff;
+
+  padding: 40px 50px;
+
+  overflow-y: auto;
 `;
