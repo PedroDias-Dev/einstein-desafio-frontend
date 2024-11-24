@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 interface LinkProps {
   active: boolean;
@@ -11,6 +12,11 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  ${media.lessThan("medium")`
+    flex-direction: column;
+    gap: 20px;
+  `}
 `;
 
 export const Logo = styled.div`
@@ -30,7 +36,24 @@ export const Logo = styled.div`
   }
 `;
 
+export const Links = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+`;
+
 export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  ${media.lessThan("medium")`
+    flex-direction: column;
+    width: 100%;
+  `}
+`;
+
+export const Icons = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
@@ -38,6 +61,13 @@ export const Container = styled.div`
   svg {
     cursor: pointer;
   }
+
+  ${media.lessThan("medium")`
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  `}
 `;
 
 export const Link = styled.a<LinkProps>`

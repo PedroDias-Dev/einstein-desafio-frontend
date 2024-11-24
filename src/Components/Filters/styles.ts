@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Wrapper = styled.div`
   padding: 30px;
@@ -11,6 +12,10 @@ export const Wrapper = styled.div`
 
   height: fit-content;
   min-height: 400px;
+
+  ${media.lessThan("medium")`
+    min-height: auto;
+  `}
 `;
 
 export const FilterTitle = styled.h3`

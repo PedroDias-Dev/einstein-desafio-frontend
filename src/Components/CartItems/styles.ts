@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -24,6 +25,12 @@ export const CartProduct = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
+  ${media.lessThan("medium")`
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  `}
 `;
 
 export const Main = styled.div`
@@ -40,6 +47,10 @@ export const Main = styled.div`
     padding: 5px;
     background-color: #f5f5f5;
   }
+
+  ${media.lessThan("medium")`
+    width: 100%;
+  `}
 `;
 
 export const Title = styled.h3`
@@ -48,15 +59,30 @@ export const Title = styled.h3`
   color: #111;
 `;
 
-export const Controls = styled.div`
+export const ControlsWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 30px;
+
+  ${media.lessThan("medium")`
+    width: 100%;
+    justify-content: space-between;
+  `}
 `;
 
 export const Price = styled.span`
   font-size: 16px;
   font-weight: 500;
+`;
+
+export const Controls = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  ${media.lessThan("medium")`
+    gap: 10px;
+  `}
 `;
 
 export const Quantity = styled.div`

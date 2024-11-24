@@ -3,6 +3,7 @@ import * as S from "./styles";
 import { ShoppingCart } from "lucide-react";
 import { useEffect } from "react";
 import useCart from "Hooks/useCart";
+import Button from "Components/Form/Button";
 
 interface ProductProps {
   product: ProductInterface;
@@ -50,6 +51,12 @@ const Product = ({ product }: ProductProps) => {
           <S.Price>R$ {product.price.toFixed(2)}</S.Price>
         </S.Bottom>
       </S.Infos>
+
+      <Button
+        text="Adicionar ao carrinho"
+        variant="primary"
+        onClick={() => addProductToCart(product)}
+      />
     </S.Wrapper>
   );
 };

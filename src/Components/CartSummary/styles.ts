@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Wrapper = styled.div`
   padding: 30px;
@@ -12,6 +13,10 @@ export const Wrapper = styled.div`
   height: fit-content;
 
   min-width: 300px;
+
+  ${media.lessThan("medium")`
+    min-width: 80%;
+  `}
 `;
 
 export const SummaryTitle = styled.h3`

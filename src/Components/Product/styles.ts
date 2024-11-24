@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Wrapper = styled.div`
   max-width: 200px;
@@ -6,6 +7,19 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 25px;
+
+  button {
+    display: none;
+  }
+
+  ${media.lessThan("medium")`
+    width: 100%;
+    max-width: 100%;
+
+    button {
+      display: block;
+    }
+  `}
 `;
 
 export const ImageWrapper = styled.div`
@@ -34,6 +48,11 @@ export const ImageWrapper = styled.div`
       opacity: 0.3;
     }
   }
+
+  ${media.lessThan("medium")`
+    width: auto;
+    max-width: 100%;
+  `}
 `;
 
 export const Image = styled.img`
@@ -78,6 +97,12 @@ export const Name = styled.h3`
   overflow: hidden;
   white-space: nowrap;
   margin: 0;
+
+  ${media.lessThan("medium")`
+    text-overflow: initial;
+    white-space: initial;
+    overflow: initial;
+  `}
 `;
 
 export const Bottom = styled.div`

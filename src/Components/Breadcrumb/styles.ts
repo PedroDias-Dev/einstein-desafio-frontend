@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const BreadcrumbWrapper = styled.div`
   padding: 30px 50px;
@@ -12,6 +13,10 @@ export const BreadcrumbWrapper = styled.div`
     color: #000;
     margin: 0;
   }
+
+  ${media.lessThan("medium")`
+    padding: 20px;
+  `}
 `;
 
 export const Breadcrumb = styled.div`

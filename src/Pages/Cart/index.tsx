@@ -1,6 +1,6 @@
 import CartSummary from "Components/CartSummary";
 import * as S from "./styles";
-import CartItems from "Components/Cart";
+import CartItems from "Components/CartItems";
 
 const Cart = () => {
   return (

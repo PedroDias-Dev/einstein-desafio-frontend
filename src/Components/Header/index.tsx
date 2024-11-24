@@ -30,7 +30,7 @@ const Header = () => {
         <h1>ECOMMERCE</h1>
       </S.Logo>
 
-      <S.Container>
+      <S.Links>
         {links.map((link) => (
           <S.Link
             key={link.label}
@@ -40,7 +40,7 @@ const Header = () => {
             {link.label}
           </S.Link>
         ))}
-      </S.Container>
+      </S.Links>
 
       <S.Container>
         <Input
@@ -49,11 +49,13 @@ const Header = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <ShoppingCart
-          size="32px"
-          onClick={() => navigate(CommonRoutes.Cart.path)}
-        />
-        <CircleUserRound size="32px" />
+        <S.Icons>
+          <ShoppingCart
+            size="25px"
+            onClick={() => navigate(CommonRoutes.Cart.path)}
+          />
+          <CircleUserRound size="25px" />
+        </S.Icons>
       </S.Container>
     </S.Wrapper>
   );
