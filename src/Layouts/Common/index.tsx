@@ -3,6 +3,8 @@ import * as S from "./styles";
 import ServicesProvider from "Contexts/Services";
 import ProductsProvider from "Contexts/Products";
 import { ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import CommonRoutes from "Routes/Common/Common";
 
 const CommonLayout = ({
   displayName,
@@ -11,6 +13,8 @@ const CommonLayout = ({
   displayName?: string;
   children: React.ReactNode;
 }) => {
+  const navigate = useNavigate();
+
   return (
     <ServicesProvider>
       <ProductsProvider>
@@ -18,7 +22,9 @@ const CommonLayout = ({
           <Header />
 
           <S.Breadcrumb>
-            <span>Ecommerce</span>
+            <span onClick={() => navigate(CommonRoutes.Marketplace.path)}>
+              Ecommerce
+            </span>
             <ChevronRight />
             <h3>{displayName}</h3>
           </S.Breadcrumb>

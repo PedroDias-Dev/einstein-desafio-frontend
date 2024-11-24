@@ -19,6 +19,7 @@ export const Breadcrumb = styled.div`
   span {
     color: #424242;
     font-size: 16px;
+    cursor: pointer;
   }
 
   h3 {

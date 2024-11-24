@@ -9,7 +9,7 @@ const CommonRoutes = {
   },
   Cart: {
     displayName: "Carrinho",
-    path: "/marketplace",
+    path: "/cart",
     element: Cart,
   },
 };
