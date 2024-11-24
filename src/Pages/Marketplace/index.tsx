@@ -4,6 +4,8 @@ import * as S from "./styles";
 import Product from "Components/Product";
 import Filters from "Components/Filters";
 
+import { motion } from "framer-motion";
+
 const Marketplace = () => {
   const { products, loading } = useProducts();
 
@@ -24,7 +26,14 @@ const Marketplace = () => {
     <S.Wrapper>
       <Filters />
 
-      <S.Products>{getComponent()}</S.Products>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+      >
+        <S.Products>{getComponent()}</S.Products>
+      </motion.div>
     </S.Wrapper>
   );
 };

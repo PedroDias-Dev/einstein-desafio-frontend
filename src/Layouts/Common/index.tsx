@@ -4,6 +4,7 @@ import ServicesProvider from "Contexts/Services";
 import ProductsProvider from "Contexts/Products";
 import Breadcrumb from "Components/Breadcrumb";
 import CartProvider from "Contexts/Cart";
+import { motion } from "framer-motion";
 
 const CommonLayout = ({
   displayName,
@@ -18,16 +19,23 @@ const CommonLayout = ({
     <ServicesProvider>
       <ProductsProvider>
         <CartProvider>
-          <S.Wrapper>
-            <Header />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <S.Wrapper>
+              <Header />
 
-            <Breadcrumb
-              displayName={displayName || ""}
-              showBreadcrumbTitle={showBreadcrumbTitle}
-            />
+              <Breadcrumb
+                displayName={displayName || ""}
+                showBreadcrumbTitle={showBreadcrumbTitle}
+              />
 
-            <S.MainContent>{children}</S.MainContent>
-          </S.Wrapper>
+              <S.MainContent>{children}</S.MainContent>
+            </S.Wrapper>
+          </motion.div>
         </CartProvider>
       </ProductsProvider>
     </ServicesProvider>

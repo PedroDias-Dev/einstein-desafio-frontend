@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import useCart from "Hooks/useCart";
 import Button from "Components/Form/Button";
 
+import { motion } from "framer-motion";
+
 interface ProductProps {
   product: ProductInterface;
 }
@@ -30,34 +32,41 @@ const Product = ({ product }: ProductProps) => {
   }, []);
 
   return (
-    <S.Wrapper>
-      <S.ImageWrapper id={`image-${product.id}`}>
-        <S.Image src={product.image} alt={product.title} />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
+      <S.Wrapper>
+        <S.ImageWrapper id={`image-${product.id}`}>
+          <S.Image src={product.image} alt={product.title} />
 
-        <S.AddToCart
-          id={`add-to-cart-${product.id}`}
+          <S.AddToCart
+            id={`add-to-cart-${product.id}`}
+            onClick={() => addProductToCart(product)}
+          >
+            Add to Cart
+            <ShoppingCart size="20px" />
+          </S.AddToCart>
+        </S.ImageWrapper>
+
+        <S.Infos>
+          <S.Name>{product.title}</S.Name>
+          <S.Bottom>
+            <S.StockBadge>IN STOCK</S.StockBadge>
+
+            <S.Price>R$ {product.price.toFixed(2)}</S.Price>
+          </S.Bottom>
+        </S.Infos>
+
+        <Button
+          text="Adicionar ao carrinho"
+          variant="primary"
           onClick={() => addProductToCart(product)}
-        >
-          Add to Cart
-          <ShoppingCart size="20px" />
-        </S.AddToCart>
-      </S.ImageWrapper>
-
-      <S.Infos>
-        <S.Name>{product.title}</S.Name>
-        <S.Bottom>
-          <S.StockBadge>IN STOCK</S.StockBadge>
-
-          <S.Price>R$ {product.price.toFixed(2)}</S.Price>
-        </S.Bottom>
-      </S.Infos>
-
-      <Button
-        text="Adicionar ao carrinho"
-        variant="primary"
-        onClick={() => addProductToCart(product)}
-      />
-    </S.Wrapper>
+        />
+      </S.Wrapper>
+    </motion.div>
   );
 };
 

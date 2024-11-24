@@ -37,20 +37,31 @@ const ProductsProvider = ({ children }: React.PropsWithChildren) => {
   }, []);
 
   useEffect(() => {
+    setLoading(true);
+  }, [search]);
+
+  useEffect(() => {
+    handleSearch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedSearch]);
+
+  const handleSearch = async () => {
     if (debouncedSearch) {
       const filteredProducts = products.filter((product) =>
         product.title.toLowerCase().includes(debouncedSearch.toLowerCase())
       );
 
-      return setProducts(filteredProducts);
+      setProducts(filteredProducts);
+
+      return setLoading(false);
     }
 
-    searchProducts({
+    await searchProducts({
       category: selectedCategory,
     });
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [debouncedSearch]);
+    setLoading(false);
+  };
 
   const searchProducts = async ({ category }: { category?: string }) => {
     let productsUrl = "/products";
