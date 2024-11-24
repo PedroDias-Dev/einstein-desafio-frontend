@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes as DOMRoutes, Route } from "react-router-dom";
-import CommonRoutes from "./Common/Common";
 import React from "react";
-import CommonLayout from "../Layouts/Common";
+import CommonRoutes from "./Common/Common";
+import CommonLayout from "Layouts/Common";
 
 const Routes = () => {
   return (

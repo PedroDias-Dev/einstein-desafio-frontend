@@ -1,5 +1,5 @@
-import Cart from "../../Pages/Marketplace";
-import Marketplace from "../../Pages/Marketplace";
+import Marketplace from "Pages/Cart";
+import Cart from "Pages/Marketplace";
 
 const CommonRoutes = {
   Marketplace: {
