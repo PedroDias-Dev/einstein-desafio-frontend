@@ -70,10 +70,11 @@ export const Icons = styled.div`
   `}
 `;
 
-export const Link = styled.a<LinkProps>`
+export const Link = styled.span<LinkProps>`
   color: #424242;
   text-decoration: none;
   font-size: 14px;
   font-weight: ${(props: any) => (props.active ? "bold" : "normal")};
   transition: 0.3s;
+  cursor: pointer;
 `;

@@ -34,8 +34,8 @@ const Header = () => {
         {links.map((link) => (
           <S.Link
             key={link.label}
-            href={link.href}
             active={isLinkActive(link.href)}
+            onClick={() => navigate(link.href)}
           >
             {link.label}
           </S.Link>
