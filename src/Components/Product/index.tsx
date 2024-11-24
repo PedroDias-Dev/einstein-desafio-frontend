@@ -8,10 +8,12 @@ interface ProductProps {
 const Product = ({ product }: ProductProps) => {
   return (
     <S.Wrapper>
-      <S.Image src={product.image} alt={product.name} />
+      <S.Image>
+        <img src={product.image} alt={product.title} />
+      </S.Image>
 
       <S.Infos>
-        <S.Name>{product.name}</S.Name>
+        <S.Name>{product.title}</S.Name>
         <S.Bottom>
           <S.StockBadge>IN STOCK</S.StockBadge>
 
