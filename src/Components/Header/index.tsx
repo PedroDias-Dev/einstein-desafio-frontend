@@ -1,11 +1,15 @@
-import { CircleUserRound, ShoppingCart } from "lucide-react";
+import { CircleUserRound, Search, ShoppingCart } from "lucide-react";
 import * as S from "./styles";
 
 import Logo from "Assets/einstein-logo.jpg";
 import { useNavigate } from "react-router-dom";
 import CommonRoutes from "Routes/Common/Common";
+import Input from "Components/Form/Input";
+import useProducts from "Hooks/useProducts";
 
 const Header = () => {
+  const { setSearch } = useProducts();
+
   const navigate = useNavigate();
 
   const links = [
@@ -39,9 +43,17 @@ const Header = () => {
       </S.Container>
 
       <S.Container>
-        {/* // input */}
-        <ShoppingCart onClick={() => navigate(CommonRoutes.Cart.path)} />
-        <CircleUserRound />
+        <Input
+          placeholder="Procure um produto"
+          icon={<Search size="20px" />}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+
+        <ShoppingCart
+          size="32px"
+          onClick={() => navigate(CommonRoutes.Cart.path)}
+        />
+        <CircleUserRound size="32px" />
       </S.Container>
     </S.Wrapper>
   );

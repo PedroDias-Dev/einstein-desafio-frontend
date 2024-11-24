@@ -1,3 +1,4 @@
+import UseDebounce from "Hooks/useDebounce";
 import useServices from "Hooks/useServices";
 import { Product } from "Interfaces/Product";
 import React, { useEffect, useState } from "react";
@@ -11,6 +12,7 @@ export const ProductsContext = React.createContext({
   categories: [] as string[],
   selectedCategory: "",
   selectCategory: (category: string) => {},
+  setSearch: (search: string) => {},
 });
 
 const ProductsProvider = ({ children }: React.PropsWithChildren) => {
@@ -20,6 +22,12 @@ const ProductsProvider = ({ children }: React.PropsWithChildren) => {
 
   const [products, setProducts] = useState<Product[]>([]);
   const [cart, setCart] = useState<Product[]>([]);
+
+  const [search, setSearch] = useState("");
+  const debouncedSearch = UseDebounce({
+    value: search,
+    delay: 500,
+  });
 
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
@@ -40,13 +48,21 @@ const ProductsProvider = ({ children }: React.PropsWithChildren) => {
     });
   }, []);
 
-  const searchProducts = async ({
-    category,
-    search,
-  }: {
-    category?: string;
-    search?: string;
-  }) => {
+  useEffect(() => {
+    if (debouncedSearch) {
+      const filteredProducts = products.filter((product) =>
+        product.title.toLowerCase().includes(debouncedSearch.toLowerCase())
+      );
+
+      return setProducts(filteredProducts);
+    }
+
+    searchProducts({
+      category: selectedCategory,
+    });
+  }, [debouncedSearch]);
+
+  const searchProducts = async ({ category }: { category?: string }) => {
     let productsUrl = "/products";
 
     if (category) productsUrl += `/category/${category}`;
@@ -88,6 +104,7 @@ const ProductsProvider = ({ children }: React.PropsWithChildren) => {
     categories,
     selectedCategory,
     selectCategory,
+    setSearch,
   };
 
   return (
