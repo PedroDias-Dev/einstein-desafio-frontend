@@ -26,6 +26,12 @@ export const Image = styled.div`
   position: relative;
   overflow: hidden;
 
+  transition: 0.3s;
+
+  :hover {
+    opacity: 0.3;
+  }
+
   img {
     width: 100%;
     height: 100%;
